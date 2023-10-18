@@ -1,6 +1,6 @@
 package classes;
 
-public enum IslaiduKategorija implements Kategorija{
+public enum IslaiduKategorija {
     MAISTAS(1,"Maistas"),
     KOMUNALINIAI(2,"Komunaliniai"),
     TRANSPORTAS(3,"Transportas");
@@ -20,7 +20,6 @@ public enum IslaiduKategorija implements Kategorija{
         return null;
     }
 
-    @Override
     public String getName() {
         return name;
     }

@@ -1,6 +1,6 @@
 package classes;
 
-public enum PajamuKategorija implements Kategorija{
+public enum PajamuKategorija {
     PASKOLA(1,"Paskola"),
     ALGA(2,"Alga"),
     INVESTICIJOS(3,"Investicijos"),
@@ -21,9 +21,6 @@ public enum PajamuKategorija implements Kategorija{
         return null;
     }
 
-
-
-    @Override
     public String getName() {
         return name;
     }

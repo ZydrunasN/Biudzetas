@@ -1,11 +1,13 @@
-package classes;
+package classes.irasai;
+
+import classes.PajamuKategorija;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class PajamuIrasas extends Irasas{
+public final class PajamuIrasas extends Irasas {
    private PajamuKategorija pajamuKategorija;
-   private boolean arPinigaiGauti;
+   private final boolean arPinigaiGauti;
    private String papildomaInformacija;
 
     public PajamuIrasas(BigDecimal suma, PajamuKategorija pajamuKategorija,LocalDate data, boolean arPinigaiGauti, String papildomaInformacija) {

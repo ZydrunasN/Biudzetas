@@ -1,17 +1,21 @@
 package classes;
 
+import classes.irasai.Irasas;
+import classes.irasai.IslaiduIrasas;
+import classes.irasai.PajamuIrasas;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Biudzetas {
-    private static ArrayList<Irasas> irasai = new ArrayList<>();
+public final class Biudzetas {
+    private static final ArrayList<Irasas> irasai = new ArrayList<>();
 
-    public void pridetiIrasa(Irasas irasas) {
+    public void pridetiIrasa(final Irasas irasas) {
         irasai.add(irasas);
     }
 
     public ArrayList<PajamuIrasas> gautiPajamuIrasus() {
-        ArrayList <PajamuIrasas> pajamos = new ArrayList<>();
+        final ArrayList <PajamuIrasas> pajamos = new ArrayList<>();
         for (Irasas irasas : irasai) {
             if (irasas instanceof PajamuIrasas) pajamos.add((PajamuIrasas) irasas);
         }
@@ -19,14 +23,14 @@ public class Biudzetas {
     }
 
     public ArrayList<IslaiduIrasas> gautiIslaiduIrasus() {
-        ArrayList<IslaiduIrasas> islaidos = new ArrayList<>();
+        final ArrayList<IslaiduIrasas> islaidos = new ArrayList<>();
         for (Irasas irasas : irasai) {
             if (irasas instanceof IslaiduIrasas) islaidos.add((IslaiduIrasas) irasas);
         }
         return islaidos;
     }
     
-    public Irasas gautiIrasa (int id) {
+    public Irasas gautiIrasa (final int id) {
         for (Irasas irasas: irasai) {
             if (irasas.getId() == id) return irasas;
         }
@@ -36,18 +40,18 @@ public class Biudzetas {
     public double balansas() {
         BigDecimal money = new BigDecimal(0);
 
-        for (PajamuIrasas pajam : gautiPajamuIrasus()) {
-            money = money.add(pajam.getSuma());
-        }
-
-        for (IslaiduIrasas islaid : gautiIslaiduIrasus()) {
-            money = money.subtract(islaid.getSuma());
+        for (Irasas irasas : irasai) {
+            if(irasas instanceof PajamuIrasas) {
+                money = money.add(irasas.getSuma());
+            } else if(irasas instanceof  IslaiduIrasas) {
+                money = money.subtract(irasas.getSuma());
+            }
         }
 
         return money.doubleValue();
     }
 
-    public void pasalintiIrasa (int id) {
+    public void pasalintiIrasa (final int id) {
         for (Irasas irasas: irasai) {
             if(irasas.getId() == id) {
                 irasai.remove(irasas);
@@ -56,11 +60,12 @@ public class Biudzetas {
         }
     }
 
-    public void atnaujintiIrasa(Irasas naujasIrasas) {
+    public void atnaujintiIrasa(final Irasas naujasIrasas) {
         for (Irasas irasas: irasai) {
             if (irasas.getId() == naujasIrasas.getId()) {
-                int index = irasai.indexOf(irasas);
+                final int index = irasai.indexOf(irasas);
                 irasai.set(index,naujasIrasas);
+                break;
             }
         }
     }

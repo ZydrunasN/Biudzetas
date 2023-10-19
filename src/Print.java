@@ -1,6 +1,8 @@
 import classes.*;
+import classes.irasai.IslaiduIrasas;
+import classes.irasai.PajamuIrasas;
 
-public class Print {
+final class Print {
     private final Biudzetas budget = new Biudzetas();
 
     public void atvaizduotiPajamas() {

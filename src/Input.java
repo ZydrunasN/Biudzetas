@@ -1,10 +1,13 @@
 import classes.*;
+import classes.irasai.Irasas;
+import classes.irasai.IslaiduIrasas;
+import classes.irasai.PajamuIrasas;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
- class Input {
+final class Input {
 
      private final Biudzetas budget = new Biudzetas();
      private final Print print = new Print();
@@ -18,7 +21,7 @@ import java.util.Scanner;
         System.out.println("------------Islaidos----------------");
         print.atvaizduotiIslaidas();
 
-        int id = sc.nextInt();
+        final int id = sc.nextInt();
         if (id < 0) {
             System.out.println("Blogai įvesti nurodymai!");
             return;
@@ -27,16 +30,15 @@ import java.util.Scanner;
     }
 
     public void piniguInesimas () {
-        BigDecimal kiek;
 
         print.pajamuKategorijaTxt();
         System.out.print("Iveskite kategorijos numeri: ");
-        int kategorija = sc.nextInt();
+        final int kategorija = sc.nextInt();
 
         print.piniguInesimasTxt();
 
-        kiek = sc.nextBigDecimal();
-        String papildomaInfo = sc.next();
+        final BigDecimal kiek = sc.nextBigDecimal();
+        final String papildomaInfo = sc.next();
 
         PajamuIrasas pajamos = new PajamuIrasas(
                 kiek,
@@ -49,17 +51,15 @@ import java.util.Scanner;
     }
 
     public void piniguIsemimas() {
-        BigDecimal kiek;
-
         print.islaiduKategorijaTxt();
         System.out.print("Iveskite kategorijos numeri: ");
-        int kategorija = sc.nextInt();
+        final int kategorija = sc.nextInt();
 
         print.piniguIsemimasTxt();
 
-        kiek = sc.nextBigDecimal();
-        String atsiskaitymoBudas = sc.next();
-        String kortele = sc.next();
+        final BigDecimal kiek = sc.nextBigDecimal();
+        final String atsiskaitymoBudas = sc.next();
+        final String kortele = sc.next();
 
         IslaiduIrasas islaidos = new IslaiduIrasas(
                 kiek,
@@ -73,10 +73,11 @@ import java.util.Scanner;
     public void redaguotiIrasa() {
         print.gautiIrasus();
         print.redaguotiIrasaTxt();
-        int id = sc.nextInt();
-        Irasas irasas = budget.gautiIrasa(id);
-        PajamuIrasas pajamuIrasas;
-        IslaiduIrasas islaiduIrasas;
+        final int id = sc.nextInt();
+        final Irasas irasas = budget.gautiIrasa(id);
+
+        final PajamuIrasas pajamuIrasas;
+        final IslaiduIrasas islaiduIrasas;
 
         if(irasas instanceof  PajamuIrasas) {
             pajamuIrasas = (PajamuIrasas) irasas;
@@ -89,15 +90,13 @@ import java.util.Scanner;
         }
     }
 
-    public void redaguotiPajamuIrasa(PajamuIrasas irasas) {
-        byte choice;
-
+    public void redaguotiPajamuIrasa(final PajamuIrasas irasas) {
         System.out.println("Suma: "+irasas.getSuma()+" Eur");
         print.arRedaguotitxt();
-        choice = sc.nextByte();
+        byte choice = sc.nextByte();
         if (choice == 1) {
             System.out.println("Įveskite naują reikšmę");
-            BigDecimal suma = sc.nextBigDecimal();
+            final BigDecimal suma = sc.nextBigDecimal();
             irasas.setSuma(suma);
         }
 

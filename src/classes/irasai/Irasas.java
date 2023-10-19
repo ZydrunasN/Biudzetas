@@ -1,4 +1,4 @@
-package classes;
+package classes.irasai;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Irasas {
     private BigDecimal suma;
     private LocalDate data;
-    private int id;
+    private final int id;
     private static int i = 0;
 
     public Irasas(BigDecimal suma, LocalDate data) {

@@ -1,9 +1,11 @@
-package classes;
+package classes.irasai;
+
+import classes.IslaiduKategorija;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class IslaiduIrasas extends Irasas {
+public final class IslaiduIrasas extends Irasas {
   private String atsiskaitymoBudas;
   private IslaiduKategorija islaiduKategorija;
   private String bankoKortele;

@@ -1,7 +1,5 @@
 package classes;
 
-import classes.IO.ConsoleIOManager;
-import classes.IO.IOManager;
 import classes.irasai.Irasas;
 import classes.irasai.IslaiduIrasas;
 import classes.irasai.PajamuIrasas;

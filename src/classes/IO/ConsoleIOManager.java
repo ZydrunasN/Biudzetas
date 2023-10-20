@@ -5,7 +5,7 @@ import java.util.Scanner;
 public final class ConsoleIOManager implements IOManager{
     private final ConsoleInput in = new ConsoleInput();
     private final ConsoleOutput out = new ConsoleOutput();
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     public ConsoleIOManager() {
         ConsoleInput consoleInput = new ConsoleInput();

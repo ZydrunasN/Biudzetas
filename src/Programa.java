@@ -16,7 +16,7 @@ public class Programa {
     public static void main(String[] args) {
         boolean veikia = true;
 
-        print.MenuTxtCommands();
+        write.MenuTxtCommands();
         while (veikia) {
             int veiksmas = in.thisInt();
 

@@ -21,7 +21,7 @@ final class Input {
         System.out.println("------------Islaidos----------------");
         print.atvaizduotiIslaidas();
 
-        final int id = sc.nextInt();
+        final int id = Programa.in.thisInt();
         if (id < 0) {
             System.out.println("Blogai įvesti nurodymai!");
             return;
@@ -33,12 +33,12 @@ final class Input {
 
         print.pajamuKategorijaTxt();
         System.out.print("Iveskite kategorijos numeri: ");
-        final int kategorija = sc.nextInt();
+        final int kategorija = Programa.in.thisInt();
 
         print.piniguInesimasTxt();
 
-        final BigDecimal kiek = sc.nextBigDecimal();
-        final String papildomaInfo = sc.next();
+        final BigDecimal kiek = Programa.in.thisBigdecimal();
+        final String papildomaInfo = Programa.in.thisWord();
 
         PajamuIrasas pajamos = new PajamuIrasas(
                 kiek,
@@ -53,13 +53,13 @@ final class Input {
     public void piniguIsemimas() {
         print.islaiduKategorijaTxt();
         System.out.print("Iveskite kategorijos numeri: ");
-        final int kategorija = sc.nextInt();
+        final int kategorija = Programa.in.thisInt();
 
         print.piniguIsemimasTxt();
 
-        final BigDecimal kiek = sc.nextBigDecimal();
-        final String atsiskaitymoBudas = sc.next();
-        final String kortele = sc.next();
+        final BigDecimal kiek = Programa.in.thisBigdecimal();
+        final String atsiskaitymoBudas = Programa.in.thisWord();
+        final String kortele = Programa.in.thisWord();
 
         IslaiduIrasas islaidos = new IslaiduIrasas(
                 kiek,

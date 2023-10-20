@@ -10,7 +10,7 @@ public final class PajamuIrasas extends Irasas {
    private final boolean arPinigaiGauti;
    private String papildomaInformacija;
 
-    public PajamuIrasas(BigDecimal suma, PajamuKategorija pajamuKategorija,LocalDate data, boolean arPinigaiGauti, String papildomaInformacija) {
+    public PajamuIrasas(BigDecimal suma, PajamuKategorija pajamuKategorija, LocalDate data, boolean arPinigaiGauti, String papildomaInformacija) {
         super(suma,data);
         this.arPinigaiGauti = arPinigaiGauti;
         this.papildomaInformacija = papildomaInformacija;

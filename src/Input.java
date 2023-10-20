@@ -5,25 +5,23 @@ import classes.irasai.PajamuIrasas;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 final class Input {
 
      private final Biudzetas budget = new Biudzetas();
      private final Print print = new Print();
-     private final Scanner sc = new Scanner(System.in);
 
     public void pasalintiIrasa() {
-        print.pasalintiIrasaTxt();
+        Programa.write.pasalintiIrasaTxt();
 
-        System.out.println("------------Pajamos----------------");
+        Programa.write.miniTxt5();
         print.atvaizduotiPajamas();
-        System.out.println("------------Islaidos----------------");
+        Programa.write.miniTxt6();
         print.atvaizduotiIslaidas();
 
-        final int id = sc.nextInt();
+        final int id = Programa.in.thisInt();
         if (id < 0) {
-            System.out.println("Blogai įvesti nurodymai!");
+            Programa.write.errTxt2();
             return;
         }
         budget.pasalintiIrasa(id);
@@ -31,14 +29,14 @@ final class Input {
 
     public void piniguInesimas () {
 
-        print.pajamuKategorijaTxt();
-        System.out.print("Iveskite kategorijos numeri: ");
-        final int kategorija = sc.nextInt();
+        print.pajamuKategorija();
+        Programa.write.miniTxt7();
+        final int kategorija = Programa.in.thisInt();
 
-        print.piniguInesimasTxt();
+        Programa.write.piniguInesimasTxt();
 
-        final BigDecimal kiek = sc.nextBigDecimal();
-        final String papildomaInfo = sc.next();
+        final BigDecimal kiek = Programa.in.thisBigdecimal();
+        final String papildomaInfo = Programa.in.thisWord();
 
         PajamuIrasas pajamos = new PajamuIrasas(
                 kiek,
@@ -52,14 +50,14 @@ final class Input {
 
     public void piniguIsemimas() {
         print.islaiduKategorijaTxt();
-        System.out.print("Iveskite kategorijos numeri: ");
-        final int kategorija = sc.nextInt();
+        Programa.write.miniTxt7();
+        final int kategorija = Programa.in.thisInt();
 
-        print.piniguIsemimasTxt();
+        Programa.write.piniguIsemimasTxt();
 
-        final BigDecimal kiek = sc.nextBigDecimal();
-        final String atsiskaitymoBudas = sc.next();
-        final String kortele = sc.next();
+        final BigDecimal kiek = Programa.in.thisBigdecimal();
+        final String atsiskaitymoBudas = Programa.in.thisWord();
+        final String kortele = Programa.in.thisWord();
 
         IslaiduIrasas islaidos = new IslaiduIrasas(
                 kiek,
@@ -72,8 +70,8 @@ final class Input {
 
     public void redaguotiIrasa() {
         print.gautiIrasus();
-        print.redaguotiIrasaTxt();
-        final int id = sc.nextInt();
+        Programa.write.redaguotiIrasaTxt();
+        final int id = Programa.in.thisInt();
         final Irasas irasas = budget.gautiIrasa(id);
 
         final PajamuIrasas pajamuIrasas;
@@ -91,31 +89,31 @@ final class Input {
     }
 
     public void redaguotiPajamuIrasa(final PajamuIrasas irasas) {
-        System.out.println("Suma: "+irasas.getSuma()+" Eur");
-        print.arRedaguotitxt();
-        byte choice = sc.nextByte();
+        Programa.write.redaguotiTxt1(irasas.getSuma());
+        Programa.write.arRedaguotitxt();
+        byte choice = Programa.in.thisByte();
         if (choice == 1) {
-            System.out.println("Įveskite naują reikšmę");
-            final BigDecimal suma = sc.nextBigDecimal();
+            Programa.write.miniTxt8();
+            final BigDecimal suma = Programa.in.thisBigdecimal();
             irasas.setSuma(suma);
         }
 
-        System.out.println("Kategorija: "+irasas.getPajamuKategorija().getName());
-        print.arRedaguotitxt();
-        choice = sc.nextByte();
+        Programa.write.redaguotiTxt2(irasas.getPajamuKategorija().getName());
+        Programa.write.arRedaguotitxt();
+        choice = Programa.in.thisByte();
         if (choice == 1) {
-            System.out.println("Įveskite naują reikšmę");
-            print.pajamuKategorijaTxt();
-            byte kategorija = sc.nextByte();
+            Programa.write.miniTxt8();
+            print.pajamuKategorija();
+            byte kategorija = Programa.in.thisByte();
             irasas.setPajamuKategorija(kategorija);
         }
 
-        System.out.println("Papildoma informacija: "+irasas.getPapildomaInformacija());
-        print.arRedaguotitxt();
-        choice = sc.nextByte();
+        Programa.write.redaguotiTxt3(irasas.getPapildomaInformacija());
+        Programa.write.arRedaguotitxt();
+        choice = Programa.in.thisByte();
         if (choice == 1) {
-            System.out.println("Įveskite naują reikšmę");
-            String papildomaInformacija = sc.next();
+            Programa.write.miniTxt8();
+            String papildomaInformacija = Programa.in.thisWord();
             irasas.setPapildomaInformacija(papildomaInformacija);
         }
         budget.atnaujintiIrasa(irasas);
@@ -124,40 +122,40 @@ final class Input {
      public void redaguotiIslaiduIrasa(IslaiduIrasas irasas) {
         byte choice;
 
-         System.out.println("Suma: "+irasas.getSuma()+" Eur");
-         print.arRedaguotitxt();
-         choice = sc.nextByte();
+         Programa.write.redaguotiTxt1(irasas.getSuma());
+         Programa.write.arRedaguotitxt();
+         choice = Programa.in.thisByte();
          if (choice == 1) {
-             System.out.println("Įveskite naują reikšmę");
-             BigDecimal suma = sc.nextBigDecimal();
+             Programa.write.miniTxt8();
+             BigDecimal suma = Programa.in.thisBigdecimal();
              irasas.setSuma(suma);
          }
 
-         System.out.println("Kategorija: "+irasas.getIslaiduKategorija().getName());
-         print.arRedaguotitxt();
-         choice = sc.nextByte();
+         Programa.write.redaguotiTxt2(irasas.getIslaiduKategorija().getName());
+         Programa.write.arRedaguotitxt();
+         choice = Programa.in.thisByte();
          if (choice == 1) {
-             System.out.println("Įveskite naują reikšmę");
+             Programa.write.miniTxt8();
              print.islaiduKategorijaTxt();
-             byte kategorija = sc.nextByte();
+             byte kategorija = Programa.in.thisByte();
              irasas.setIslaiduKategorija(kategorija);
          }
 
-         System.out.println("Atsiskaitymo budas: "+irasas.getAtsiskaitymoBudas());
-         print.arRedaguotitxt();
-         choice = sc.nextByte();
+         Programa.write.redaguotiTxt4(irasas.getAtsiskaitymoBudas());
+         Programa.write.arRedaguotitxt();
+         choice = Programa.in.thisByte();
          if (choice == 1) {
-             System.out.println("Įveskite naują reikšmę");
-             String atsiskaitymoBudas = sc.next();
+             Programa.write.miniTxt8();
+             String atsiskaitymoBudas = Programa.in.thisWord();
              irasas.setAtsiskaitymoBudas(atsiskaitymoBudas);
          }
 
-         System.out.println("Banko kortele: "+irasas.getBankoKortele());
-         print.arRedaguotitxt();
-         choice = sc.nextByte();
+         Programa.write.redaguotiTxt5(irasas.getBankoKortele());
+         Programa.write.arRedaguotitxt();
+         choice = Programa.in.thisByte();
          if (choice == 1) {
-             System.out.println("Įveskite naują reikšmę");
-             String bankoKortele = sc.next();
+             Programa.write.miniTxt8();
+             String bankoKortele = Programa.in.thisWord();
              irasas.setBankoKortele(bankoKortele);
          }
          budget.atnaujintiIrasa(irasas);

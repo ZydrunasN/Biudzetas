@@ -62,7 +62,7 @@ public final class Biudzetas {
 
     public void atnaujintiIrasa(final Irasas naujasIrasas) {
         for (Irasas irasas: irasai) {
-            if (irasas.getId() == naujasIrasas.getId()) {
+            if (irasas.equals(naujasIrasas)) {
                 final int index = irasai.indexOf(irasas);
                 irasai.set(index,naujasIrasas);
                 break;

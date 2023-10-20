@@ -1,20 +1,25 @@
-import java.util.Scanner;
+import classes.IO.ConsoleIOManager;
+import classes.IO.ConsoleInput;
+import classes.IO.ConsoleOutput;
+import classes.IO.IOManager;
 
 public class Programa {
-    private final static Print print = new Print();
-    private final static Input input = new Input();
-    private final static Scanner sc = new Scanner(System.in);
+    private static final Print print = new Print();
+    private static final Input input = new Input();
+    private static final IOManager console = new ConsoleIOManager();
+    public static final ConsoleOutput write = (ConsoleOutput) console.output();
+    public static final ConsoleInput in = (ConsoleInput) console.input();
 
 
     public static void main(String[] args) {
         boolean veikia = true;
 
-        print.MenuTxtCommands();
+        write.MenuTxtCommands();
         while (veikia) {
-            int veiksmas = sc.nextInt();
+            int veiksmas = in.thisInt();
 
             veikia = meniu(veiksmas);
-            System.out.println("Komanda Ivikdyta");
+            Programa.write.miniTxt4();
         }
     }
 
@@ -29,7 +34,7 @@ public class Programa {
             case 6-> print.gautiIrasus();
             case 7-> input.pasalintiIrasa();
             case 8-> input.redaguotiIrasa();
-            default-> System.out.println("Neteisinga komanda.");
+            default-> Programa.write.errTxt1();
         }
         return true;
     }

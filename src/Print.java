@@ -30,7 +30,7 @@ final class Print {
         }
     }
 
-    public void pajamuKategorijaTxt(){
+    public void pajamuKategorija(){
         int i = 1;
         Programa.write.miniTxt3();
         for (PajamuKategorija kategorija: PajamuKategorija.values()) {

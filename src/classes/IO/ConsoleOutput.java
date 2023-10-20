@@ -1,10 +1,5 @@
 package classes.IO;
 
-import classes.IslaiduKategorija;
-import classes.PajamuKategorija;
-import classes.irasai.IslaiduIrasas;
-import classes.irasai.PajamuIrasas;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -33,12 +28,10 @@ public final class ConsoleOutput {
     }
 
     public void pajamuKategorijaTxt(int i, String kategorija){
-        System.out.println("        Nurodykite viena iš nurodytu pajamu kategoriju: \n");
         System.out.printf("%s. %s\n",i ,kategorija);
     }
 
     public void islaiduKategorijaTxt(int i, String kategorija){
-        System.out.println("        Nurodykite viena iš nurodytu Išlaidu kategoriju: \n");
         System.out.printf("%s. %s\n",i, kategorija);
     }
 
@@ -95,15 +88,47 @@ public final class ConsoleOutput {
         System.out.println("        Nurodykite viena iš nurodytu pajamu kategoriju: \n");
     }
     public void miniTxt4() {
-
+        System.out.println("Komanda Ivikdyta");
     }
     public void miniTxt5() {
-
+        System.out.println("------------Pajamos----------------");
     }
     public void miniTxt6() {
-
+        System.out.println("------------Islaidos----------------");
     }
     public void miniTxt7() {
+        System.out.print("Iveskite kategorijos numeri: ");
+    }
 
+    public void miniTxt8() {
+        System.out.println("Įveskite naują reikšmę");
+    }
+
+    public void redaguotiTxt1(BigDecimal suma) {
+        System.out.println("Suma: "+suma+" Eur");
+    }
+
+    public void redaguotiTxt2(String kategorija) {
+        System.out.println("Kategorija: "+kategorija);
+    }
+
+    public void redaguotiTxt3(String info) {
+        System.out.println("Papildoma informacija: "+info);
+    }
+
+    public void redaguotiTxt4(String atsiskaitymoBudas) {
+        System.out.println("Atsiskaitymo budas: "+atsiskaitymoBudas);
+    }
+
+    public void redaguotiTxt5(String bankoKortele) {
+        System.out.println("Atsiskaitymo budas: "+bankoKortele);
+    }
+
+    public void errTxt1() {
+        System.err.println("Neteisinga komanda.");
+    }
+
+    public void errTxt2() {
+        System.err.println("Blogai įvesti nurodymai!");
     }
 }

@@ -3,8 +3,6 @@ import classes.IO.ConsoleInput;
 import classes.IO.ConsoleOutput;
 import classes.IO.IOManager;
 
-import java.util.Scanner;
-
 public class Programa {
     private static final Print print = new Print();
     private static final Input input = new Input();
@@ -21,7 +19,7 @@ public class Programa {
             int veiksmas = in.thisInt();
 
             veikia = meniu(veiksmas);
-            System.out.println("Komanda Ivikdyta");
+            Programa.write.miniTxt4();
         }
     }
 
@@ -36,7 +34,7 @@ public class Programa {
             case 6-> print.gautiIrasus();
             case 7-> input.pasalintiIrasa();
             case 8-> input.redaguotiIrasa();
-            default-> System.out.println("Neteisinga komanda.");
+            default-> Programa.write.errTxt1();
         }
         return true;
     }

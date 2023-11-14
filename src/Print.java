@@ -30,7 +30,7 @@ final class Print {
         }
     }
 
-    public void pajamuKategorija(){
+    public void pajamuKategorija() {
         int i = 1;
         Programa.write.miniTxt3();
         for (PajamuKategorija kategorija: PajamuKategorija.values()) {
@@ -41,7 +41,7 @@ final class Print {
         }
     }
 
-    public void islaiduKategorijaTxt(){
+    public void islaiduKategorijaTxt() {
         int i = 1;
         Programa.write.miniTxt2();
         for (IslaiduKategorija kategorija: IslaiduKategorija.values()) {

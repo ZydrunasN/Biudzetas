@@ -5,7 +5,12 @@ import java.time.LocalDate;
 
 public final class ConsoleOutput {
 
-    public void atvaizduotiPajamasTxt(int id, BigDecimal suma, String kategorija, LocalDate data, String info) {
+    public void atvaizduotiPajamasTxt(int id,
+                                      BigDecimal suma,
+                                      String kategorija,
+                                      LocalDate data,
+                                      String info) {
+
         System.out.printf("%s. %s %s %s %s\n",
                 id,
                 suma,
@@ -15,8 +20,13 @@ public final class ConsoleOutput {
         );
     }
 
-    public void atvaizduotiIslaidasTxt(int id, BigDecimal suma, String kategorija, LocalDate data,
-                                    String atsiskaitymas, String kortele) {
+    public void atvaizduotiIslaidasTxt(int id,
+                                       BigDecimal suma,
+                                       String kategorija,
+                                       LocalDate data,
+                                       String atsiskaitymas,
+                                       String kortele) {
+
         System.out.printf("%s. %s %s %s %s %s\n",
                 id,
                 suma,
@@ -49,28 +59,34 @@ public final class ConsoleOutput {
                 "5 - Pasitikrinti balansa\n" +
                 "6 - Atvaizduoti visas pajamas ir visas išlaidas\n" +
                 "7 - Pašalinti pajamu arba išlaidu įrašą" +
-                "8 - Redaguoti irašą iš duoto sąrašo"
+                "8 - Redaguoti irašą iš duoto sąrašo" +
+                "9 - Išsaugoti duomenis į failą" +
+                "10 - Gauti duomenis iš failo"
         );
     }
 
     public void pasalintiIrasaTxt() {
-        System.out.println("        (Įrašo pašalinimas) Įrašykite įrašo identifikacini numeri esanti prieš tašką.");
+        System.out.println("        (Įrašo pašalinimas)" +
+                " Įrašykite įrašo identifikacini numeri esanti prieš tašką.");
     }
 
     public void piniguInesimasTxt() {
-        System.out.println("        (Pinigu įnešimas į sąskaitą) Įrašykite duota informacija nurodyta tvarka: \n" +
+        System.out.println("        (Pinigu įnešimas į sąskaitą)" +
+                " Įrašykite duota informacija nurodyta tvarka: \n" +
                 "kiek įdėti, papildoma informacija"
         );
     }
 
     public void piniguIsemimasTxt() {
-        System.out.println("        (Pinigu išėmimas iš sąskaitos) Įrašykite duota informacija nurodyta tvarka: \n" +
+        System.out.println("        (Pinigu išėmimas iš sąskaitos)" +
+                " Įrašykite duota informacija nurodyta tvarka: \n" +
                 "kiek išimti, atsiskaitymo būdas, banko kortelė"
         );
     }
 
     public void redaguotiIrasaTxt() {
-        System.out.println("        (Įrašo redagavimas) Nurodikite įrašo Identifikacini numeri(id) kuri norite redaguoti");
+        System.out.println("        (Įrašo redagavimas) Nurodikite įrašo" +
+                " Identifikacini numeri(id) kuri norite redaguoti");
     }
 
     public void arRedaguotitxt() {

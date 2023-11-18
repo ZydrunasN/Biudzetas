@@ -58,9 +58,9 @@ public final class ConsoleOutput {
                 "4 - Atvaizduoti islaidas\n" +
                 "5 - Pasitikrinti balansa\n" +
                 "6 - Atvaizduoti visas pajamas ir visas išlaidas\n" +
-                "7 - Pašalinti pajamu arba išlaidu įrašą" +
-                "8 - Redaguoti irašą iš duoto sąrašo" +
-                "9 - Išsaugoti duomenis į failą" +
+                "7 - Pašalinti pajamu arba išlaidu įrašą\n" +
+                "8 - Redaguoti irašą iš duoto sąrašo\n" +
+                "9 - Išsaugoti duomenis į failą\n" +
                 "10 - Gauti duomenis iš failo"
         );
     }
@@ -138,6 +138,10 @@ public final class ConsoleOutput {
 
     public void redaguotiTxt5(String bankoKortele) {
         System.out.println("Atsiskaitymo budas: "+bankoKortele);
+    }
+
+    public void issaugotiDuomenisTxt() {
+        System.out.println("Duomenys buvo sėkmingai išsaugoti į failą.");
     }
 
     public void errTxt1() {

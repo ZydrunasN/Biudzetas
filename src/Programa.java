@@ -1,3 +1,4 @@
+import classes.Biudzetas;
 import classes.IO.ConsoleIOManager;
 import classes.IO.ConsoleInput;
 import classes.IO.ConsoleOutput;
@@ -34,6 +35,8 @@ public class Programa {
             case 6-> print.gautiIrasus();
             case 7-> input.pasalintiIrasa();
             case 8-> input.redaguotiIrasa();
+            case 9-> print.issaugotiDuomenis();
+            case 10-> input.gautiDuomenisIsFailo();
             default-> Programa.write.errTxt1();
         }
         return true;

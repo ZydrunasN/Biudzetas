@@ -2,8 +2,11 @@ import classes.*;
 import classes.irasai.IslaiduIrasas;
 import classes.irasai.PajamuIrasas;
 
+import java.io.File;
+
 final class Print {
-    private final Biudzetas budget = new Biudzetas();
+    private final Biudzetas budget = Biudzetas.object;
+    private final FileProcessor fileProcessor = new FileProcessor();
 
     public void atvaizduotiPajamas() {
         for (PajamuIrasas pajamosAt: budget.gautiPajamuIrasus()) {
@@ -60,5 +63,10 @@ final class Print {
 
     public void atvaizduotiBalansa() {
         Programa.write.atvaizduotiBalansaTxt(budget.balansas());
+    }
+
+    public void issaugotiDuomenis() {
+        fileProcessor.fileWriter();
+        Programa.write.issaugotiDuomenisTxt();
     }
 }

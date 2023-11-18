@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public final class Biudzetas {
     private static final ArrayList<Irasas> irasai = new ArrayList<>();
 
+    public static final Biudzetas object = new Biudzetas();
+
     public void pridetiIrasa(final Irasas irasas) {
         irasai.add(irasas);
     }
@@ -68,5 +70,24 @@ public final class Biudzetas {
                 break;
             }
         }
+    }
+
+    public String getCSVLine(Irasas irasas) {
+        String csvLine="";
+        if (irasas instanceof PajamuIrasas p) {
+            csvLine = "P,"+p.getId()
+                    +","+p.getSuma()
+                    +","+p.getPajamuKategorija().name()
+                    +","+p.getPapildomaInformacija()
+                    +","+p.getData();
+        } else if (irasas instanceof IslaiduIrasas i) {
+            csvLine = "I,"+i.getId()
+                    +","+i.getSuma()
+                    +","+i.getIslaiduKategorija().name()
+                    +","+i.getAtsiskaitymoBudas()
+                    +","+i.getBankoKortele()
+                    +","+i.getData();
+        }
+        return csvLine;
     }
 }

@@ -8,8 +8,9 @@ import java.time.LocalDate;
 
 final class Input {
 
-     private final Biudzetas budget = new Biudzetas();
+     private final Biudzetas budget = Biudzetas.object;
      private final Print print = new Print();
+     private final FileProcessor fileProcessor = new FileProcessor();
 
     public void pasalintiIrasa() {
         Programa.write.pasalintiIrasaTxt();
@@ -159,5 +160,31 @@ final class Input {
              irasas.setBankoKortele(bankoKortele);
          }
          budget.atnaujintiIrasa(irasas);
+     }
+
+     public void gautiDuomenisIsFailo() {
+         fileProcessor.fileReader().forEach(line -> {
+             String[] data = line.split(",");
+
+             if(data[0].equals("P")) {
+                 var pajamuIrasas = new PajamuIrasas(
+                         BigDecimal.valueOf(Double.parseDouble(data[2])),
+                         PajamuKategorija.valueOf(data[3]),
+                         LocalDate.parse(data[5]),
+                         true,
+                         data[4]
+                 );
+                 budget.pridetiIrasa(pajamuIrasas);
+             } else if (data[0].equals("I")) {
+                 var islaiduIrasas = new IslaiduIrasas(
+                         BigDecimal.valueOf(Double.parseDouble(data[2])),
+                         IslaiduKategorija.valueOf(data[3]),
+                         LocalDate.parse(data[6]),
+                         data[4],
+                         data[5]
+                 );
+                 budget.pridetiIrasa(islaiduIrasas);
+             } else throw new RuntimeException("Failure of file reader");
+         });
      }
 }
